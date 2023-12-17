@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
+using CarShop.BusinessLogic.Services;
 using CarShop.DataTransfer.DataTransferObjects;
-using CarShop.General;
+using CarShop.General.Services;
 using CarShop.UserInterface.General;
 using CarShop.UserInterface.ViewModels.Interfaces;
 using CarShop.UserInterface.Views;
@@ -24,7 +25,7 @@ namespace CarShop.UserInterface.ViewModels
             DialogService.TryRegisterWindow(typeof(CarTableViewModel), typeof(CarTableWindow));
         }
 
-        public CarTableViewModel()
+        public CarTableViewModel(ICarService carService)
         {
             Title = "List of cars";
         }

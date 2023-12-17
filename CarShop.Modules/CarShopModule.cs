@@ -1,6 +1,9 @@
-﻿using CarShop.BusinessLogic.Services;
+﻿using AutoMapper;
+using CarShop.BusinessLogic.Services;
+using CarShop.Data.Contexts;
 using CarShop.Data.Repositories;
-using CarShop.General;
+using CarShop.DataTransfer;
+using CarShop.General.Services;
 using CarShop.UserInterface.ViewModels;
 using Ninject.Modules;
 
@@ -24,7 +27,18 @@ public class CarShopModule : NinjectModule
         Bind<IClientTableViewModel>().To<ClientTableViewModel>();
         Bind<IMenuViewModel>().To<MenuViewModel>();
 
+        // AutoMapper
+        Bind<IMapper>().ToMethod(ctx =>
+        {
+            var mapConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<DataTransferObjectProfile>();
+            });
+            return mapConfig.CreateMapper();
+        }).InSingletonScope();
+
         // Others
+        Bind<CarShopDbContext>().ToConstant(new CarShopDbContext());
         Bind<IDialogService>().ToConstant(DialogService.Instance);
     }
     #endregion

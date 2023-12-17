@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 using CarShop.DataTransfer.DataTransferObjects;
-using CarShop.General;
+using CarShop.General.Services;
 using CarShop.UserInterface.General;
 using CarShop.UserInterface.ViewModels.Interfaces;
 using CarShop.UserInterface.Views;

@@ -1,4 +1,4 @@
-using CarShop.General;
+using CarShop.General.Services;
 using CarShop.UserInterface.General;
 
 namespace CarShop.UserInterface.ViewModels;

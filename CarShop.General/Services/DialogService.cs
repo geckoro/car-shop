@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace CarShop.General;
+namespace CarShop.General.Services;
 
 public interface IDialogService
 {

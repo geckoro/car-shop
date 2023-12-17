@@ -6,8 +6,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.BusinessLogic", "Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Data", "CarShop.Data\CarShop.Data.csproj", "{28EC56BD-B05A-4831-991F-B009E7853FEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Tests", "CarShop.Tests\CarShop.Tests.csproj", "{196CDA64-BECC-491D-981D-E1DD6F9033AA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.General", "CarShop.General\CarShop.General.csproj", "{9DC262C6-DB1B-415F-BC8C-876ACF316BE4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.UserInterface.General", "CarShop.UserInterface.General\CarShop.UserInterface.General.csproj", "{FDB7B898-04FE-4C14-86C3-BAC9DD8B9E65}"
@@ -38,10 +36,6 @@ Global
 		{28EC56BD-B05A-4831-991F-B009E7853FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28EC56BD-B05A-4831-991F-B009E7853FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28EC56BD-B05A-4831-991F-B009E7853FEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{196CDA64-BECC-491D-981D-E1DD6F9033AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{196CDA64-BECC-491D-981D-E1DD6F9033AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{196CDA64-BECC-491D-981D-E1DD6F9033AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{196CDA64-BECC-491D-981D-E1DD6F9033AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9DC262C6-DB1B-415F-BC8C-876ACF316BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9DC262C6-DB1B-415F-BC8C-876ACF316BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DC262C6-DB1B-415F-BC8C-876ACF316BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU

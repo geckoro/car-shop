@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using CarShop.BusinessLogic.Services;
+using CarShop.Data.Contexts;
 using CarShop.General.Interfaces;
 using CarShop.General.Services;
 using CarShop.UserInterface.General;
@@ -32,9 +33,9 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
 {
     #region Fields
     private readonly IAlertViewModelFactory _alertViewModelFactory;
-    private readonly IBaseService<T> _baseService;
     private readonly IDialogService _dialogService;
     private readonly IEntityViewModelFactory _entityViewModelFactory;
+    private readonly IBaseService<T> _baseService;
     private ObservableCollection<T> _items;
     private T? _selectedItem;
     private bool _wereChangesMade;
@@ -82,6 +83,7 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
 
     #region Events
     protected event Action<object> AddedItem;
+    protected event Action<object> UpdatedItem;
     #endregion
 
     #region Constructors
@@ -94,7 +96,7 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
         _alertViewModelFactory = alertViewModelFactory;
         _entityViewModelFactory = entityViewModelFactory;
         Title = title;
-        Items = new ObservableCollection<T>(baseService.Get());
+        Items = new ObservableCollection<T>(_baseService.Get());
         InitializeCommands();
         WereChangesMade = false;
     }
@@ -152,6 +154,7 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
         _baseService.SaveChanges();
         _dialogService.ShowDialog(_alertViewModelFactory.Create("Saved the changes to the database."));
         WereChangesMade = false;
+        CarShopDbContextProvider.CreateNew();
         Items = new ObservableCollection<T>(_baseService.Get());
     }
 
@@ -160,6 +163,9 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
         if (SelectedItem == null)
             throw new InvalidOperationException(
                 "Something went wrong, the command mustn't execute when there is no selection.");
+        var entityViewModel = _entityViewModelFactory.Create(typeof(T), SelectedItem);
+        if (!_dialogService.ShowDialog(entityViewModel)) return;
+        UpdatedItem.Invoke(entityViewModel);
         WereChangesMade = true;
     }
     #endregion

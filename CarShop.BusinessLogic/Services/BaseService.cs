@@ -4,6 +4,13 @@ using CarShop.General.Interfaces;
 
 namespace CarShop.BusinessLogic.Services;
 
+public interface IBaseServiceFactory<out T> where T : class, IIdentifiable
+{
+    #region Public members
+    IBaseService<T> Create();
+    #endregion
+}
+
 public interface IBaseService<out T> where T : class, IIdentifiable
 {
     #region Public members
@@ -49,6 +56,11 @@ public abstract class BaseService<T> : IBaseService<T> where T : class, IIdentif
     protected void Create(IIdentifiable identifiable)
     {
         _baseRepository.Create(identifiable);
+    }
+
+    protected void Update(IIdentifiable identifiable)
+    {
+        _baseRepository.Update(identifiable);
     }
     #endregion
 }

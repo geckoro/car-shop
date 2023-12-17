@@ -26,7 +26,7 @@ public class PropertyNameAndValue : ObservableObject
     #endregion
 
     #region Constructors
-    public PropertyNameAndValue(string name, string value, Type type)
+    public PropertyNameAndValue(string name, object? value, Type type)
     {
         Type = type;
         Name = name;

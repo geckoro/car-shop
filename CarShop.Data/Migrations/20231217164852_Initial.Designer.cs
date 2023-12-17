@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarShop.Data.Migrations
 {
     [DbContext(typeof(CarShopDbContext))]
-    [Migration("20231217114117_Initial")]
+    [Migration("20231217164852_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -50,19 +50,19 @@ namespace CarShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("87033b1e-138d-4851-b065-b9af8f69aaeb"),
+                            Id = new Guid("d4f29448-4480-41c0-97d9-644000276fd2"),
                             Mileage = 0,
                             Model = "Tesla"
                         },
                         new
                         {
-                            Id = new Guid("9e8c6393-13e3-4d90-85c3-9e92d92b16c2"),
+                            Id = new Guid("105a96cb-60db-4d97-9ff2-17bc1452b0c5"),
                             Mileage = 31120,
                             Model = "Mazda"
                         },
                         new
                         {
-                            Id = new Guid("47b1ea3c-2b62-4ea8-97f2-7098c0a1aa42"),
+                            Id = new Guid("d863fdbb-5856-42e8-b411-2e77c00b0f24"),
                             Mileage = 91234,
                             Model = "Audi"
                         });
@@ -89,19 +89,19 @@ namespace CarShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("518acb24-1492-497a-b35f-0c9152729418"),
+                            Id = new Guid("cbbbf4bf-0cbb-4faf-a7ac-1933e334d2bc"),
                             FirstName = "Mike",
                             LastName = "Smith"
                         },
                         new
                         {
-                            Id = new Guid("c05cfe7c-6b03-4785-8b55-76c9fb5c9fa5"),
+                            Id = new Guid("fda8fffa-143c-4a53-81e7-aa80c7c3225e"),
                             FirstName = "Joanna",
                             LastName = "Christens"
                         },
                         new
                         {
-                            Id = new Guid("e5de5d91-3d5d-4f63-88da-0d452ebdec1a"),
+                            Id = new Guid("c860a99f-a3bd-4c94-8d19-d7b73a374173"),
                             FirstName = "Bob",
                             LastName = "Kennedy"
                         });

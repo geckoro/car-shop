@@ -34,6 +34,7 @@ namespace CarShop.UserInterface.ViewModels
         {
             _carService = carService;
             AddedItem += OnAddedItem;
+            UpdatedItem += OnUpdatedItem;
         }
         #endregion
 
@@ -44,6 +45,14 @@ namespace CarShop.UserInterface.ViewModels
             var car = CarDTO.CreateFromListOfPropertyNameAndValue(entityViewModel.PropertyNamesAndValues);
             _carService.Create(car);
             Items.Add(car);
+        }
+
+        private void OnUpdatedItem(object obj)
+        {
+            if (obj is not IEntityViewModel entityViewModel) return;
+            var car = CarDTO.CreateFromListOfPropertyNameAndValue(entityViewModel.PropertyNamesAndValues);
+            _carService.Update(car);
+            SelectedItem = car;
         }
         #endregion
     }

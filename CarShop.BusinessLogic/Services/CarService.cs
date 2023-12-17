@@ -8,6 +8,7 @@ public interface ICarService : IBaseService<CarDTO>
 {
     #region Public members
     void Create(CarDTO car);
+    void Update(CarDTO car);
     #endregion
 }
 
@@ -23,6 +24,11 @@ public class CarService : BaseService<CarDTO>, ICarService
     public void Create(CarDTO car)
     {
         base.Create(car);
+    }
+
+    public void Update(CarDTO car)
+    {
+        base.Update(car);
     }
     #endregion
 }

@@ -1,8 +1,16 @@
 using AutoMapper;
 using CarShop.Data.Contexts;
 using CarShop.General.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarShop.Data.Repositories;
+
+public interface IBaseRepositoryFactory<out T> where T : class, IIdentifiable
+{
+    #region Public members
+    IBaseRepository<T> Create(CarShopDbContext carShopDbContext);
+    #endregion
+}
 
 public interface IBaseRepository<out T> where T : class, IIdentifiable
 {
@@ -11,6 +19,7 @@ public interface IBaseRepository<out T> where T : class, IIdentifiable
     IQueryable<T> Get();
     void Remove(Guid id);
     void SaveChanges();
+    void Update(IIdentifiable identifiable);
     #endregion
 }
 
@@ -38,7 +47,7 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : class, II
 
     public IQueryable<T> Get()
     {
-        return _carShopDbContext.Set<T>();
+        return _carShopDbContext.Set<T>().AsNoTracking();
     }
 
     public void Remove(Guid id)
@@ -52,12 +61,18 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : class, II
     {
         _carShopDbContext.SaveChanges();
     }
+
+    public void Update(IIdentifiable identifiable)
+    {
+        var entity = _mapper.Map<T>(identifiable);
+        _carShopDbContext.Update(entity);
+    }
     #endregion
 
     #region Private members
     private T? SingleOrDefault(Guid id)
     {
-        return _carShopDbContext.Set<T>().SingleOrDefault(e => e.Id == id);
+        return _carShopDbContext.Set<T>().AsNoTracking().SingleOrDefault(e => e.Id == id);
     }
     #endregion
 }

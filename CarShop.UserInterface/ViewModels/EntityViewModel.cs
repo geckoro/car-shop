@@ -12,6 +12,7 @@ public interface IEntityViewModelFactory
 {
     #region Public members
     IEntityViewModel Create(Type type);
+    IEntityViewModel Create(Type type, object obj);
     #endregion
 }
 
@@ -39,6 +40,14 @@ public class EntityViewModel : IEntityViewModel
         PropertyNamesAndValues = type.GetProperties()
             .Where(p => p.Name != nameof(IdentifiableDTO.Id) && p.Name != nameof(ClientDTO.Cars))
             .Select(p => new PropertyNameAndValue(p.Name, string.Empty, p.PropertyType))
+            .ToList();
+    }
+
+    public EntityViewModel(Type type, object obj)
+    {
+        PropertyNamesAndValues = type.GetProperties()
+            .Where(p => p.Name != nameof(ClientDTO.Cars))
+            .Select(p => new PropertyNameAndValue(p.Name, p.GetValue(obj), p.PropertyType))
             .ToList();
     }
     #endregion

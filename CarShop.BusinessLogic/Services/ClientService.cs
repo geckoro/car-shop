@@ -8,6 +8,7 @@ public interface IClientService : IBaseService<ClientDTO>
 {
     #region Public members
     void Create(ClientDTO client);
+    void Update(ClientDTO client);
     #endregion
 }
 
@@ -23,6 +24,11 @@ public class ClientService : BaseService<ClientDTO>, IClientService
     public void Create(ClientDTO client)
     {
         base.Create(client);
+    }
+
+    public void Update(ClientDTO client)
+    {
+        base.Update(client);
     }
     #endregion
 }

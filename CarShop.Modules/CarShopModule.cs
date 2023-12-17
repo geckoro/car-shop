@@ -3,6 +3,7 @@ using CarShop.BusinessLogic.Services;
 using CarShop.Data.Contexts;
 using CarShop.Data.Repositories;
 using CarShop.DataTransfer;
+using CarShop.DataTransfer.DataTransferObjects;
 using CarShop.General.Services;
 using CarShop.UserInterface.ViewModels;
 using Ninject.Extensions.Factory;
@@ -20,8 +21,8 @@ public class CarShopModule : NinjectModule
         Bind<IClientRepository>().To<ClientRepository>();
 
         // Business logic layer
-        Bind<ICarService>().To<CarService>();
-        Bind<IClientService>().To<ClientService>();
+        Bind<ICarService, IBaseService<CarDTO>>().To<CarService>();
+        Bind<IClientService, IBaseService<ClientDTO>>().To<ClientService>();
 
         // User interface layer
         Bind<IAlertViewModel>().To<AlertViewModel>();
@@ -45,7 +46,7 @@ public class CarShopModule : NinjectModule
         }).InSingletonScope();
 
         // Others
-        Bind<CarShopDbContext>().ToConstant(new CarShopDbContext());
+        Bind<CarShopDbContext>().ToConstant(CarShopDbContextProvider.Context);
         Bind<IDialogService>().ToConstant(DialogService.Instance);
     }
     #endregion

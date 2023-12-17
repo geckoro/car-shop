@@ -32,8 +32,8 @@ namespace CarShop.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ClientId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Mileage = table.Column<int>(type: "int", nullable: false)
+                    Mileage = table.Column<int>(type: "int", nullable: false),
+                    Model = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,9 +50,9 @@ namespace CarShop.Data.Migrations
                 columns: new[] { "Id", "ClientId", "Mileage", "Model" },
                 values: new object[,]
                 {
-                    { new Guid("47b1ea3c-2b62-4ea8-97f2-7098c0a1aa42"), null, 91234, "Audi" },
-                    { new Guid("87033b1e-138d-4851-b065-b9af8f69aaeb"), null, 0, "Tesla" },
-                    { new Guid("9e8c6393-13e3-4d90-85c3-9e92d92b16c2"), null, 31120, "Mazda" }
+                    { new Guid("105a96cb-60db-4d97-9ff2-17bc1452b0c5"), null, 31120, "Mazda" },
+                    { new Guid("d4f29448-4480-41c0-97d9-644000276fd2"), null, 0, "Tesla" },
+                    { new Guid("d863fdbb-5856-42e8-b411-2e77c00b0f24"), null, 91234, "Audi" }
                 });
 
             migrationBuilder.InsertData(
@@ -60,9 +60,9 @@ namespace CarShop.Data.Migrations
                 columns: new[] { "Id", "FirstName", "LastName" },
                 values: new object[,]
                 {
-                    { new Guid("518acb24-1492-497a-b35f-0c9152729418"), "Mike", "Smith" },
-                    { new Guid("c05cfe7c-6b03-4785-8b55-76c9fb5c9fa5"), "Joanna", "Christens" },
-                    { new Guid("e5de5d91-3d5d-4f63-88da-0d452ebdec1a"), "Bob", "Kennedy" }
+                    { new Guid("c860a99f-a3bd-4c94-8d19-d7b73a374173"), "Bob", "Kennedy" },
+                    { new Guid("cbbbf4bf-0cbb-4faf-a7ac-1933e334d2bc"), "Mike", "Smith" },
+                    { new Guid("fda8fffa-143c-4a53-81e7-aa80c7c3225e"), "Joanna", "Christens" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -21,7 +21,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="{Binding Name}"
                        FontSize="16" />
-            <ComboBox Grid.Row="1" ItemsSource="{Binding Value}"
+            <ComboBox Grid.Row="1" SelectedItem="{Binding Value}"
                       Height="30" FontSize="16" />
         </Grid>
     </DataTemplate>

@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\CarShop.BusinessLogic\CarShop.BusinessLogic.csproj"/>
+        <ProjectReference Include="..\CarShop.DataTransfer\CarShop.DataTransfer.csproj"/>
         <ProjectReference Include="..\CarShop.General\CarShop.General.csproj"/>
         <ProjectReference Include="..\CarShop.UserInterface.General\CarShop.UserInterface.General.csproj"/>
     </ItemGroup>

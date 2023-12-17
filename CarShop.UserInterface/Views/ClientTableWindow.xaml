@@ -4,7 +4,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:CarShop.UserInterface.Views"
+        xmlns:viewModels="clr-namespace:CarShop.UserInterface.ViewModels"
         mc:Ignorable="d"
-        Title="ClientTableWindow" Height="450" Width="800">
-    <Grid />
+        Title="Client table" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance viewModels:IClientTableViewModel}">
+
+    <local:TableUserControl DataContext="{Binding}" />
+
 </Window>

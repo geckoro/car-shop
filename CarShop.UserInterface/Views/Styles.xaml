@@ -5,4 +5,8 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Margin" Value="64,32" />
     </Style>
+
+    <Style TargetType="TextBlock" x:Key="HeaderTextBlock">
+        <Setter Property="FontSize" Value="20" />
+    </Style>
 </ResourceDictionary>

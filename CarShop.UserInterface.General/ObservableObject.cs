@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace CarShop.UserInterface;
+namespace CarShop.UserInterface.General;
 
 public abstract class ObservableObject : INotifyPropertyChanged
 {

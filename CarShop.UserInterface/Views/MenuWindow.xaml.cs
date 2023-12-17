@@ -1,11 +1,9 @@
-using System.Windows.Controls;
-
 namespace CarShop.UserInterface.Views;
 
-public partial class MenuUserControl : UserControl
+public partial class MenuWindow
 {
     #region Constructors
-    public MenuUserControl()
+    public MenuWindow()
     {
         InitializeComponent();
     }

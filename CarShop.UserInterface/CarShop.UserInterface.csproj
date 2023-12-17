@@ -8,11 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Page Update="Views\MainWindow.xaml">
-            <Generator>MSBuild:Compile</Generator>
-            <XamlRuntime>Wpf</XamlRuntime>
-            <SubType>Designer</SubType>
-        </Page>
+        <ProjectReference Include="..\CarShop.BusinessLogic\CarShop.BusinessLogic.csproj"/>
+        <ProjectReference Include="..\CarShop.UserInterface.General\CarShop.UserInterface.General.csproj"/>
     </ItemGroup>
 
 </Project>

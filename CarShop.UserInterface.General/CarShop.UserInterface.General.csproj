@@ -7,7 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Models\"/>
+        <Reference Include="PresentationCore">
+            <HintPath>C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.14\PresentationCore.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
 </Project>

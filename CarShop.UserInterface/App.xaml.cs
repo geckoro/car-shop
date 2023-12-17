@@ -1,11 +1,9 @@
-﻿using System.Windows;
-
-namespace CarShop.UserInterface
+﻿namespace CarShop.UserInterface
 {
     /// <summary>
     ///     Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using CarShop.General;
+using CarShop.Loaders;
 using CarShop.UserInterface.ViewModels;
 using CarShop.UserInterface.Views;
 using Ninject;

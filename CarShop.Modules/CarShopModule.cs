@@ -1,9 +1,10 @@
 ﻿using CarShop.BusinessLogic.Services;
 using CarShop.Data.Repositories;
+using CarShop.General;
 using CarShop.UserInterface.ViewModels;
 using Ninject.Modules;
 
-namespace CarShop.General;
+namespace CarShop.Loaders;
 
 public class CarShopModule : NinjectModule
 {
@@ -22,6 +23,9 @@ public class CarShopModule : NinjectModule
         Bind<ICarTableViewModel>().To<CarTableViewModel>();
         Bind<IClientTableViewModel>().To<ClientTableViewModel>();
         Bind<IMenuViewModel>().To<MenuViewModel>();
+
+        // Others
+        Bind<IDialogService>().ToConstant(DialogService.Instance);
     }
     #endregion
 }

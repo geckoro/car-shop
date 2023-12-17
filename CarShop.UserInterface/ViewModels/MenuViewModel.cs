@@ -1,4 +1,4 @@
-using System;
+using CarShop.General;
 using CarShop.UserInterface.General;
 
 namespace CarShop.UserInterface.ViewModels;
@@ -13,14 +13,24 @@ public interface IMenuViewModel
 
 public class MenuViewModel : ObservableObject, IMenuViewModel
 {
+    #region Fields
+    private readonly ICarTableViewModel _carTableViewModel;
+    private readonly IClientTableViewModel _clientTableViewModel;
+    private readonly IDialogService _dialogService;
+    #endregion
+
     #region Properties and Indexers
     public RelayCommand? OpenCarTableCommand { get; private set; }
     public RelayCommand? OpenClientTableCommand { get; private set; }
     #endregion
 
     #region Constructors
-    public MenuViewModel()
+    public MenuViewModel(IDialogService dialogService, ICarTableViewModel carTableViewModel,
+        IClientTableViewModel clientTableViewModel)
     {
+        _dialogService = dialogService;
+        _carTableViewModel = carTableViewModel;
+        _clientTableViewModel = clientTableViewModel;
         InitializeCommands();
     }
     #endregion
@@ -34,12 +44,12 @@ public class MenuViewModel : ObservableObject, IMenuViewModel
 
     private void OpenCarTable(object obj)
     {
-        throw new NotImplementedException();
+        _dialogService.ShowDialog(_carTableViewModel);
     }
 
     private void OpenClientTable(object obj)
     {
-        throw new NotImplementedException();
+        _dialogService.ShowDialog(_clientTableViewModel);
     }
     #endregion
 }

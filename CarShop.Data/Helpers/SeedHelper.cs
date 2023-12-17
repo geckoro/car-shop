@@ -5,6 +5,7 @@ namespace CarShop.Data.Helpers;
 
 public static class SeedHelper
 {
+    #region Public members
     public static void Seed(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Car>()
@@ -50,4 +51,5 @@ public static class SeedHelper
                 }
             );
     }
+    #endregion
 }

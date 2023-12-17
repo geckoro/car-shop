@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>CarShop.Loaders</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Ninject" Version="3.3.6"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\CarShop.BusinessLogic\CarShop.BusinessLogic.csproj"/>
+        <ProjectReference Include="..\CarShop.Data\CarShop.Data.csproj"/>
+        <ProjectReference Include="..\CarShop.General\CarShop.General.csproj"/>
+        <ProjectReference Include="..\CarShop.UserInterface\CarShop.UserInterface.csproj"/>
+    </ItemGroup>
+
+</Project>

@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.DataTransfer", "Car
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Constants", "CarShop.Constants\CarShop.Constants.csproj", "{8B099960-0295-4739-84E8-42B42E8711D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Modules", "CarShop.Modules\CarShop.Modules.csproj", "{43A3839E-F8EC-4910-B79A-352CE5E2CF1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{8B099960-0295-4739-84E8-42B42E8711D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B099960-0295-4739-84E8-42B42E8711D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B099960-0295-4739-84E8-42B42E8711D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43A3839E-F8EC-4910-B79A-352CE5E2CF1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A3839E-F8EC-4910-B79A-352CE5E2CF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A3839E-F8EC-4910-B79A-352CE5E2CF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A3839E-F8EC-4910-B79A-352CE5E2CF1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

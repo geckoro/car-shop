@@ -4,38 +4,15 @@ using CarShop.DataTransfer.DataTransferObjects;
 
 namespace CarShop.BusinessLogic.Services;
 
-public interface IClientService
+public interface IClientService : IBaseService<ClientDTO>
 {
-    #region Public members
-    IEnumerable<ClientDTO> Get();
-    IEnumerable<ClientDTO> Get(Guid id);
-    #endregion
 }
 
-public class ClientService : IClientService
+public class ClientService : BaseService<ClientDTO>, IClientService
 {
-    #region Fields
-    private readonly IClientRepository _clientRepository;
-    private readonly IMapper _mapper;
-    #endregion
-
     #region Constructors
-    public ClientService(IClientRepository clientRepository, IMapper mapper)
+    public ClientService(IClientRepository clientRepository, IMapper mapper) : base(clientRepository, mapper)
     {
-        _clientRepository = clientRepository;
-        _mapper = mapper;
-    }
-    #endregion
-
-    #region Interface Implementations
-    public IEnumerable<ClientDTO> Get()
-    {
-        return _mapper.Map<IEnumerable<ClientDTO>>(_clientRepository.Get());
-    }
-
-    public IEnumerable<ClientDTO> Get(Guid id)
-    {
-        return _mapper.Map<IEnumerable<ClientDTO>>(_clientRepository.Get(id));
     }
     #endregion
 }

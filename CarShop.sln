@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.UserInterface", "CarShop.UserInterface\CarShop.UserInterface.csproj", "{F3DB8581-DA18-4123-A82E-5308DCC364EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.BusinessLogic", "CarShop.BusinessLogic\CarShop.BusinessLogic.csproj", "{2D7D30ED-74E9-4BFD-9A0B-58819D856D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Data", "CarShop.Data\CarShop.Data.csproj", "{28EC56BD-B05A-4831-991F-B009E7853FEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Tests", "CarShop.Tests\CarShop.Tests.csproj", "{196CDA64-BECC-491D-981D-E1DD6F9033AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3DB8581-DA18-4123-A82E-5308DCC364EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3DB8581-DA18-4123-A82E-5308DCC364EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3DB8581-DA18-4123-A82E-5308DCC364EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3DB8581-DA18-4123-A82E-5308DCC364EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D7D30ED-74E9-4BFD-9A0B-58819D856D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D7D30ED-74E9-4BFD-9A0B-58819D856D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D7D30ED-74E9-4BFD-9A0B-58819D856D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D7D30ED-74E9-4BFD-9A0B-58819D856D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28EC56BD-B05A-4831-991F-B009E7853FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28EC56BD-B05A-4831-991F-B009E7853FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28EC56BD-B05A-4831-991F-B009E7853FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28EC56BD-B05A-4831-991F-B009E7853FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{196CDA64-BECC-491D-981D-E1DD6F9033AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{196CDA64-BECC-491D-981D-E1DD6F9033AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{196CDA64-BECC-491D-981D-E1DD6F9033AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{196CDA64-BECC-491D-981D-E1DD6F9033AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

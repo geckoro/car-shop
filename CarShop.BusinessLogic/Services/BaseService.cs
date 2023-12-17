@@ -20,6 +20,9 @@ public interface IBaseService<out T> where T : class, IIdentifiable
     #endregion
 }
 
+/// <summary>
+///     Base implementation of a service. Helps with reducing code duplication.
+/// </summary>
 public abstract class BaseService<T> : IBaseService<T> where T : class, IIdentifiable
 {
     #region Fields

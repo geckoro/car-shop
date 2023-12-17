@@ -46,7 +46,7 @@ public class CarShopModule : NinjectModule
         }).InSingletonScope();
 
         // Others
-        Bind<CarShopDbContext>().ToConstant(CarShopDbContextProvider.Context);
+        Bind<CarShopDbContext>().ToConstant(new CarShopDbContext());
         Bind<IDialogService>().ToConstant(DialogService.Instance);
     }
     #endregion

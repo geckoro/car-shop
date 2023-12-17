@@ -1,7 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
 using CarShop.BusinessLogic.Services;
-using CarShop.Data.Contexts;
 using CarShop.General.Interfaces;
 using CarShop.General.Services;
 using CarShop.UserInterface.General;
@@ -29,13 +28,16 @@ public interface ITableViewModel<T>
     #endregion
 }
 
+/// <summary>
+///     Base implementation of a table view model. Helps with reducing code duplication.
+/// </summary>
 public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> where T : class, IIdentifiable
 {
     #region Fields
     private readonly IAlertViewModelFactory _alertViewModelFactory;
+    private readonly IBaseService<T> _baseService;
     private readonly IDialogService _dialogService;
     private readonly IEntityViewModelFactory _entityViewModelFactory;
-    private readonly IBaseService<T> _baseService;
     private ObservableCollection<T> _items;
     private T? _selectedItem;
     private bool _wereChangesMade;
@@ -129,6 +131,7 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
         if (!_dialogService.ShowDialog(entityViewModel)) return;
         AddedItem.Invoke(entityViewModel);
         WereChangesMade = true;
+        ReloadItems();
     }
 
     private void InitializeCommands()
@@ -139,6 +142,11 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
         UpdateCommand = new RelayCommand(Update, CanUpdate);
     }
 
+    private void ReloadItems()
+    {
+        Items = new ObservableCollection<T>(_baseService.Get());
+    }
+
     private void Remove(object obj)
     {
         if (SelectedItem == null)
@@ -147,6 +155,7 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
         _baseService.Remove(SelectedItem!.Id);
         Items.Remove(SelectedItem);
         WereChangesMade = true;
+        ReloadItems();
     }
 
     private void Save(object obj)
@@ -154,8 +163,6 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
         _baseService.SaveChanges();
         _dialogService.ShowDialog(_alertViewModelFactory.Create("Saved the changes to the database."));
         WereChangesMade = false;
-        CarShopDbContextProvider.CreateNew();
-        Items = new ObservableCollection<T>(_baseService.Get());
     }
 
     private void Update(object obj)
@@ -167,6 +174,7 @@ public abstract class TableViewModel<T> : ObservableObject, ITableViewModel<T> w
         if (!_dialogService.ShowDialog(entityViewModel)) return;
         UpdatedItem.Invoke(entityViewModel);
         WereChangesMade = true;
+        ReloadItems();
     }
     #endregion
 }

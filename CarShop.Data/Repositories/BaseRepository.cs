@@ -23,11 +23,14 @@ public interface IBaseRepository<out T> where T : class, IIdentifiable
     #endregion
 }
 
+/// <summary>
+///     Base implementation of a repository. Helps with reducing code duplication.
+/// </summary>
 public abstract class BaseRepository<T> : IBaseRepository<T> where T : class, IIdentifiable
 {
     #region Fields
-    private readonly CarShopDbContext _carShopDbContext;
     private readonly IMapper _mapper;
+    private CarShopDbContext _carShopDbContext;
     #endregion
 
     #region Constructors
@@ -41,20 +44,25 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : class, II
     #region Interface Implementations
     public void Create(IIdentifiable identifiable)
     {
+        _carShopDbContext = new CarShopDbContext();
         var entity = _mapper.Map<T>(identifiable);
         _carShopDbContext.Add((object)entity);
+        _carShopDbContext.SaveChanges();
     }
 
     public IQueryable<T> Get()
     {
+        _carShopDbContext = new CarShopDbContext();
         return _carShopDbContext.Set<T>().AsNoTracking();
     }
 
     public void Remove(Guid id)
     {
+        _carShopDbContext = new CarShopDbContext();
         var entity = SingleOrDefault(id);
         if (entity == null) return;
         _carShopDbContext.Remove(entity);
+        _carShopDbContext.SaveChanges();
     }
 
     public void SaveChanges()
@@ -64,8 +72,10 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : class, II
 
     public void Update(IIdentifiable identifiable)
     {
+        _carShopDbContext = new CarShopDbContext();
         var entity = _mapper.Map<T>(identifiable);
         _carShopDbContext.Update(entity);
+        _carShopDbContext.SaveChanges();
     }
     #endregion
 

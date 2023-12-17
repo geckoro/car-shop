@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.UserInterface.Gener
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Executable", "CarShop.Executable\CarShop.Executable.csproj", "{39E86622-390F-4A13-B61F-2F493082A28A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.DataTransfer", "CarShop.DataTransfer\CarShop.DataTransfer.csproj", "{13EEB472-0D89-42F2-B0CF-82F57A0C23F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShop.Constants", "CarShop.Constants\CarShop.Constants.csproj", "{8B099960-0295-4739-84E8-42B42E8711D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +52,13 @@ Global
 		{39E86622-390F-4A13-B61F-2F493082A28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39E86622-390F-4A13-B61F-2F493082A28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39E86622-390F-4A13-B61F-2F493082A28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13EEB472-0D89-42F2-B0CF-82F57A0C23F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13EEB472-0D89-42F2-B0CF-82F57A0C23F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13EEB472-0D89-42F2-B0CF-82F57A0C23F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13EEB472-0D89-42F2-B0CF-82F57A0C23F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B099960-0295-4739-84E8-42B42E8711D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B099960-0295-4739-84E8-42B42E8711D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B099960-0295-4739-84E8-42B42E8711D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B099960-0295-4739-84E8-42B42E8711D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

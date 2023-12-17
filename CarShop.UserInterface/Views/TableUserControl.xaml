@@ -13,7 +13,7 @@
         <ResourceDictionary Source="Styles.xaml" />
     </UserControl.Resources>
 
-    <Grid Margin="20,0,0,0">
+    <Grid Margin="20,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="Auto" />
@@ -23,5 +23,6 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="1" Text="{Binding Title}" Style="{StaticResource HeaderTextBlock}" />
+        <DataGrid Grid.Row="3" ItemsSource="{Binding Items}" />
     </Grid>
 </UserControl>

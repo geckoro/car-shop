@@ -28,6 +28,7 @@ namespace CarShop.UserInterface.ViewModels
         public CarTableViewModel(ICarService carService)
         {
             Title = "List of cars";
+            Items = new ObservableCollection<CarDTO>(carService.Get());
         }
         #endregion
     }

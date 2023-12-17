@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using CarShop.BusinessLogic.Services;
 using CarShop.DataTransfer.DataTransferObjects;
 using CarShop.General.Services;
 using CarShop.UserInterface.General;
@@ -24,9 +25,10 @@ namespace CarShop.UserInterface.ViewModels
             DialogService.TryRegisterWindow(typeof(ClientTableViewModel), typeof(ClientTableWindow));
         }
 
-        public ClientTableViewModel()
+        public ClientTableViewModel(IClientService clientService)
         {
             Title = "List of clients";
+            Items = new ObservableCollection<ClientDTO>(clientService.Get());
         }
         #endregion
     }

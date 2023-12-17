@@ -10,7 +10,9 @@ public class DataTransferObjectProfile : Profile
     public DataTransferObjectProfile()
     {
         CreateMap<Car, CarDTO>();
+        CreateMap<CarDTO, Car>();
         CreateMap<Client, ClientDTO>();
+        CreateMap<ClientDTO, Client>();
     }
     #endregion
 }

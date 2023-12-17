@@ -8,8 +8,8 @@ public interface IBaseService<out T> where T : class, IIdentifiable
 {
     #region Public members
     IEnumerable<T> Get();
-    Task RemoveAsync(Guid id);
-    Task SaveChangesAsync();
+    void Remove(Guid id);
+    void SaveChanges();
     #endregion
 }
 
@@ -34,21 +34,21 @@ public abstract class BaseService<T> : IBaseService<T> where T : class, IIdentif
         return _mapper.Map<IEnumerable<T>>(_baseRepository.Get());
     }
 
-    public async Task RemoveAsync(Guid id)
+    public void Remove(Guid id)
     {
-        await _baseRepository.RemoveAsync(id);
+        _baseRepository.Remove(id);
     }
 
-    public async Task SaveChangesAsync()
+    public void SaveChanges()
     {
-        await _baseRepository.SaveChangesAsync();
+        _baseRepository.SaveChanges();
     }
     #endregion
 
     #region Protected members
-    protected async Task CreateAsync(IIdentifiable identifiable)
+    protected void Create(IIdentifiable identifiable)
     {
-        await _baseRepository.CreateAsync(identifiable);
+        _baseRepository.Create(identifiable);
     }
     #endregion
 }

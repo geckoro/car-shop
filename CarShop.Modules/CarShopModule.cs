@@ -5,6 +5,7 @@ using CarShop.Data.Repositories;
 using CarShop.DataTransfer;
 using CarShop.General.Services;
 using CarShop.UserInterface.ViewModels;
+using Ninject.Extensions.Factory;
 using Ninject.Modules;
 
 namespace CarShop.Loaders;
@@ -23,8 +24,14 @@ public class CarShopModule : NinjectModule
         Bind<IClientService>().To<ClientService>();
 
         // User interface layer
+        Bind<IAlertViewModel>().To<AlertViewModel>();
+        Bind<IAlertViewModelFactory>().ToFactory();
         Bind<ICarTableViewModel>().To<CarTableViewModel>();
+        Bind<ICarTableViewModelFactory>().ToFactory();
         Bind<IClientTableViewModel>().To<ClientTableViewModel>();
+        Bind<IClientTableViewModelFactory>().ToFactory();
+        Bind<IEntityViewModel>().To<EntityViewModel>();
+        Bind<IEntityViewModelFactory>().ToFactory();
         Bind<IMenuViewModel>().To<MenuViewModel>();
 
         // AutoMapper

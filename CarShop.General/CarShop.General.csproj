@@ -18,4 +18,8 @@
         <Folder Include="Profiles\"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\CarShop.UserInterface.General\CarShop.UserInterface.General.csproj"/>
+    </ItemGroup>
+
 </Project>

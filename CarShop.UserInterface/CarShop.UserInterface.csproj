@@ -14,4 +14,12 @@
         <ProjectReference Include="..\CarShop.UserInterface.General\CarShop.UserInterface.General.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Page Update="Views\AlertWindow.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <XamlRuntime>Wpf</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
+    </ItemGroup>
+
 </Project>

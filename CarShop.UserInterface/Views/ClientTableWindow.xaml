@@ -7,7 +7,8 @@
         xmlns:viewModels="clr-namespace:CarShop.UserInterface.ViewModels"
         mc:Ignorable="d"
         Title="Client table" Height="450" Width="800"
-        d:DataContext="{d:DesignInstance viewModels:IClientTableViewModel}">
+        d:DataContext="{d:DesignInstance viewModels:IClientTableViewModel}"
+        MinWidth="600" MinHeight="500">
 
     <local:TableUserControl DataContext="{Binding}" />
 

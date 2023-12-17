@@ -14,8 +14,8 @@ public interface IMenuViewModel
 public class MenuViewModel : ObservableObject, IMenuViewModel
 {
     #region Fields
-    private readonly ICarTableViewModel _carTableViewModel;
-    private readonly IClientTableViewModel _clientTableViewModel;
+    private readonly ICarTableViewModelFactory _carTableViewModelFactory;
+    private readonly IClientTableViewModelFactory _clientTableViewModelFactory;
     private readonly IDialogService _dialogService;
     #endregion
 
@@ -25,12 +25,12 @@ public class MenuViewModel : ObservableObject, IMenuViewModel
     #endregion
 
     #region Constructors
-    public MenuViewModel(IDialogService dialogService, ICarTableViewModel carTableViewModel,
-        IClientTableViewModel clientTableViewModel)
+    public MenuViewModel(IDialogService dialogService, ICarTableViewModelFactory carTableViewModelFactory,
+        IClientTableViewModelFactory clientTableViewModelFactory)
     {
         _dialogService = dialogService;
-        _carTableViewModel = carTableViewModel;
-        _clientTableViewModel = clientTableViewModel;
+        _carTableViewModelFactory = carTableViewModelFactory;
+        _clientTableViewModelFactory = clientTableViewModelFactory;
         InitializeCommands();
     }
     #endregion
@@ -44,12 +44,12 @@ public class MenuViewModel : ObservableObject, IMenuViewModel
 
     private void OpenCarTable(object obj)
     {
-        _dialogService.ShowDialog(_carTableViewModel);
+        _dialogService.ShowDialog(_carTableViewModelFactory.Create());
     }
 
     private void OpenClientTable(object obj)
     {
-        _dialogService.ShowDialog(_clientTableViewModel);
+        _dialogService.ShowDialog(_clientTableViewModelFactory.Create());
     }
     #endregion
 }

@@ -7,7 +7,7 @@ namespace CarShop.BusinessLogic.Services;
 public interface ICarService : IBaseService<CarDTO>
 {
     #region Public members
-    Task CreateAsync(CarDTO car);
+    void Create(CarDTO car);
     #endregion
 }
 
@@ -20,9 +20,9 @@ public class CarService : BaseService<CarDTO>, ICarService
     #endregion
 
     #region Interface Implementations
-    public async Task CreateAsync(CarDTO car)
+    public void Create(CarDTO car)
     {
-        await base.CreateAsync(car);
+        base.Create(car);
     }
     #endregion
 }

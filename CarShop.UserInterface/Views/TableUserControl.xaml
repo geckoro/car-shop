@@ -5,23 +5,54 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:CarShop.UserInterface.ViewModels"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="600" d:DesignWidth="400"
              d:DataContext="{d:DesignInstance viewModels:ITableViewModel}">
 
     <UserControl.Resources>
-        <ResourceDictionary Source="Styles.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid Margin="20,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
             <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="1" Text="{Binding Title}" Style="{StaticResource HeaderTextBlock}" />
-        <DataGrid Grid.Row="3" ItemsSource="{Binding Items}" />
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Text="{Binding Title}"
+                   Style="{StaticResource HeaderTextBlock}" />
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="2"
+                   Text="Pending changes, click Save to commit the changes"
+                   Style="{StaticResource WarningTextBlock}"
+                   Visibility="{Binding WereChangesMade,Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+        <DataGrid Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="4" ItemsSource="{Binding Items}"
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                  SelectedItem="{Binding SelectedItem}"
+                  SelectionMode="Single" />
+        <Button Grid.Column="0" Grid.Row="6" Style="{StaticResource TableButton}"
+                Content="Create" Command="{Binding CreateCommand}" />
+        <Button Grid.Column="1" Grid.Row="6" Style="{StaticResource TableButton}"
+                Content="Remove" Command="{Binding RemoveCommand}" />
+        <Button Grid.Column="2" Grid.Row="6" Style="{StaticResource TableButton}"
+                Content="Update" Command="{Binding UpdateCommand}" />
+        <Button Grid.Column="3" Grid.Row="6" Style="{StaticResource TableButton}"
+                Content="Save" Command="{Binding SaveCommand}" />
     </Grid>
 </UserControl>

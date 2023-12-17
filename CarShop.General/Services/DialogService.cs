@@ -32,14 +32,7 @@ public class DialogService : IDialogService
         if (!RegisteredWindows.TryGetValue(content.GetType(), out var value)) return false;
         if (Activator.CreateInstance(value) is not Window window) return false;
         window.DataContext = content;
-        try
-        {
-            window.ShowDialog();
-        }
-        catch (Exception)
-        {
-            return false;
-        }
+        window.ShowDialog();
         return true;
     }
     #endregion

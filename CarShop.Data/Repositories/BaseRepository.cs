@@ -1,17 +1,16 @@
 using AutoMapper;
 using CarShop.Data.Contexts;
 using CarShop.General.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace CarShop.Data.Repositories;
 
 public interface IBaseRepository<out T> where T : class, IIdentifiable
 {
     #region Public members
-    Task CreateAsync(IIdentifiable identifiable);
+    void Create(IIdentifiable identifiable);
     IQueryable<T> Get();
-    Task RemoveAsync(Guid id);
-    Task SaveChangesAsync();
+    void Remove(Guid id);
+    void SaveChanges();
     #endregion
 }
 
@@ -31,10 +30,10 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : class, II
     #endregion
 
     #region Interface Implementations
-    public async Task CreateAsync(IIdentifiable identifiable)
+    public void Create(IIdentifiable identifiable)
     {
         var entity = _mapper.Map<T>(identifiable);
-        await _carShopDbContext.AddAsync(entity);
+        _carShopDbContext.Add((object)entity);
     }
 
     public IQueryable<T> Get()
@@ -42,23 +41,23 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : class, II
         return _carShopDbContext.Set<T>();
     }
 
-    public async Task RemoveAsync(Guid id)
+    public void Remove(Guid id)
     {
-        var entity = await SingleOrDefaultAsync(id);
+        var entity = SingleOrDefault(id);
         if (entity == null) return;
         _carShopDbContext.Remove(entity);
     }
 
-    public async Task SaveChangesAsync()
+    public void SaveChanges()
     {
-        await _carShopDbContext.SaveChangesAsync();
+        _carShopDbContext.SaveChanges();
     }
     #endregion
 
     #region Private members
-    private async Task<T?> SingleOrDefaultAsync(Guid id)
+    private T? SingleOrDefault(Guid id)
     {
-        return await _carShopDbContext.Set<T>().SingleOrDefaultAsync(e => e.Id == id);
+        return _carShopDbContext.Set<T>().SingleOrDefault(e => e.Id == id);
     }
     #endregion
 }
